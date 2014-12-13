@@ -22,13 +22,13 @@
 (import dlaunch-plugin-api)
 (use extras posix srfi-1 srfi-69)
 
-(let ()
-  (define-values (custom-commands custom-command-pairs)
+(let-values
+  (((custom-commands custom-command-pairs)
     (if (file-exists? (get-config-path "custom-commands.scm"))
       (partition
         string?
         (read-file (get-config-path "custom-commands.scm")))
-      (values '() '())))
+      (values '() '()))))
   
   (register-source
     "user-cmd"

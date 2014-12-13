@@ -1,5 +1,5 @@
 (import dlaunch-plugin-api)
-(use files posix extras irregex data-structures srfi-1 srfi-69)
+(use posix extras irregex data-structures srfi-1)
 (foreign-declare "#include <sys/stat.h>")
 
 (let ()

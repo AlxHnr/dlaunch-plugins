@@ -68,5 +68,5 @@
   (register-source "home-files" gather-home-files async: #t)
   (register-handler
     (lambda (selected-string source-name)
-      (if (string=? source-name source-name)
+      (if (string=? source-name "home-files")
         (process-run "xdg-open" (list selected-string))))))

@@ -23,10 +23,14 @@
         (irregex-match pattern path))
       ignore-list))
 
+  ;; Increment the hide level, if a filename starts with a dot.
   (define (new-hidelevel prev-hidelevel filename)
     (if (char=? (string-ref filename 0) #\.)
       (add1 prev-hidelevel) prev-hidelevel))
 
+  ;; Returns an alist, which associates a filepath with its hide level. The
+  ;; filepath is relative to the specified root. The root directory is an
+  ;; absolute path and must end with a slash.
   (define (get-scored-filetree root)
     (let fold-filetree ((dirpath "") (filetree '()) (hidelevel 0))
       (fold
@@ -53,6 +57,8 @@
                     lst))))))
         filetree (directory (string-append root dirpath) #t))))
 
+  ;; Returns a presorted list of all files in the users home directory,
+  ;; which are not matched by the patterns in 'ignore-list'.
   (define (gather-home-files)
     (map
       car

@@ -18,5 +18,5 @@
 
   (register-handler
     (lambda (selected-string source-name)
-      (if (string=? source-name "exec-path")
+      (if (equal? source-name "exec-path")
         (process-run selected-string)))))

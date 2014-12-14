@@ -76,7 +76,10 @@
                       (string-append dirpath filename)
                       (new-hidelevel hidelevel filename))
                     lst))))))
-        filetree (directory (string-append root dirpath) #t))))
+        filetree
+        (condition-case
+          (directory (string-append root dirpath) #t)
+          ((exn file) '())))))
 
   ;; Returns a presorted list of all files in the users home directory,
   ;; which are not matched by the patterns in 'ignore-list'.

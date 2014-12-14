@@ -24,12 +24,12 @@
 
 (let-values
   (((custom-commands custom-command-pairs)
-    (if (file-exists? (get-config-path "custom-commands.scm"))
+    (if (file-exists? (get-config-path "user-commands.scm"))
       (partition
         string?
-        (read-file (get-config-path "custom-commands.scm")))
+        (read-file (get-config-path "user-commands.scm")))
       (values '() '()))))
-  
+
   (register-source
     "user-cmd"
     (lambda ()

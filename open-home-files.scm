@@ -99,4 +99,8 @@
   (register-handler
     (lambda (selected-string source-name)
       (if (equal? source-name "home-files")
-        (process-run "xdg-open" (list selected-string))))))
+        (let
+          ((full-path
+             (string-append
+               (get-environment-variable "HOME") "/" selected-string)))
+          (process-run "xdg-open" (list full-path)))))))

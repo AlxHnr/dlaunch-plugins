@@ -20,11 +20,12 @@
 ;       distribution.
 
 (import dlaunch-plugin-api)
-(use posix extras srfi-69)
+(use posix extras irregex srfi-69)
 
 (let*
   ((score-table (alist->hash-table (get-score-alist "cmd-hist")))
    (history-file-path (get-data-path "command-history.txt"))
+   (valid-commands (irregex "^(\\w|_).*$"))
    (history
      (filter
        (lambda (command)
@@ -42,13 +43,13 @@
           history))))
 
   (register-source "cmd-hist" (lambda () history))
-
   (register-handler
     (lambda (selected-string source-name)
       (cond
         ((equal? source-name "cmd-hist")
          (process-run selected-string))
-        ((not source-name)
+        ((and (not source-name)
+              (irregex-match valid-commands selected-string))
          (learn-selected-pair (cons selected-string "cmd-hist"))
          ; Update 'history' for the case of subsequent gatherings.
          (set! history (cons selected-string history))

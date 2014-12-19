@@ -24,17 +24,17 @@ programs, refer to the documentation of your desktop environment.
 This plugin ignores various directories by default, like VCS or cache
 directories. To disable this or to specify custom regular expressions, you
 must configure it in the file `~/.config/dlaunch/ignore-files.scm`. It is a
-Scheme file containing various quoted regex strings. Remember to escape
-backslashes, unless you want to use ASCII escape sequences. For more
-informations see the documentation of the
+Scheme file containing various quoted regex strings. For more informations
+see the documentation of the
 [irregex unit](http://wiki.call-cc.org/man/4/Unit%20irregex).
 
 Here is an example:
 
 ```scheme
-"^.*\\.(a|o|so|dll|class|pyc|bin)$"
-"^.*\\/\\.(gconf|mozilla|git|cache)$"
-"^.*\\/\\.(fontconfig|thumbnails|icons|themes|wine)$"
+"^.*.(a|o|so|dll|class|pyc|bin)$"
+"^.*/.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
+"^.*/.(thumbnails|icons|themes|wine)$"
+"^.*/.local/share/Trash$"
 ```
 
 ## user-cmd

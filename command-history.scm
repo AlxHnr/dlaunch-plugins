@@ -25,7 +25,6 @@
 (let*
   ((score-table (alist->hash-table (get-score-alist "cmd-hist")))
    (history-file-path (get-data-path "command-history.txt"))
-   (valid-commands (irregex "^(\\w|_).*$"))
    (history
      (filter
        (lambda (command)
@@ -48,10 +47,9 @@
       (cond
         ((equal? source-name "cmd-hist")
          (process-run selected-string))
-        ((and (not source-name)
-              (irregex-match valid-commands selected-string))
+        ((and (not source-name) (irregex-match "^\\w.*$" selected-string))
          (learn-selected-pair (cons selected-string "cmd-hist"))
-         ; Update 'history' for the case of subsequent gatherings.
+         ; set! 'history' for the case of subsequent gatherings.
          (set! history (cons selected-string history))
          (save-history)
          (process-run selected-string))))))

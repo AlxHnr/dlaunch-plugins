@@ -55,6 +55,13 @@ Here is a configuration example:
 ("Reboot System"   . "sudo shutdown -r now")
 ```
 
+## command-history
+
+Execute arbitrary shell commands and remember them until their score fades.
+It provides a source named _"cmd-hist"_ and ignores commands which do not
+start with a letter, number or underscore. This allows other plugins to
+implement special commands prefixed by i.e. `:` or `=`.
+
 ## License
 
 Released under the zlib license.

@@ -27,17 +27,18 @@
   (define stat-is-directory?
     (foreign-lambda bool "S_ISDIR" int))
 
-  ;; A list with regexes, which specify which paths should be ignored.
+  ;; A list with regexes which specify the paths which should be ignored.
   (define ignore-list
     (map
       irregex
       (if (file-exists? (get-config-path "ignore-files.scm"))
         (read-file (get-config-path "ignore-files.scm"))
-        '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
-          "^.*\\/\\.(gconf|mozilla|claws-mail|git|cache)$"
-          "^.*\\/\\.(fontconfig|thumbnails|icons|themes|wine)$"))))
+        '("^.*.(a|o|so|dll|class|pyc|bin)$"
+          "^.*/.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
+          "^.*/.(thumbnails|icons|themes|wine)$"
+          "^.*/.local/share/Trash$"))))
 
-  ;; A function, which checks if a given path can be ignored.
+  ;; A function, which checks if the given absolute path can be ignored.
   (define (ignore? path)
     (find
       (lambda (pattern)

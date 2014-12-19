@@ -8,13 +8,13 @@ recommend installing plugins separately.
 
 Here is a short overview of them:
 
-### exec-path
+## exec-path
 
 Run arbitrary programs which are locatable trough your path variable. This
 plugin provides a source named _"exec-path"_, and a handler which runs
 them.
 
-### open-home-files
+## open-home-files
 
 Search your home directory for files and open them. This plugin provides a
 source named _"home-files"_. It uses _xdg-open_ to start your systems
@@ -37,7 +37,7 @@ Here is an example:
 "^.*\\/\\.(fontconfig|thumbnails|icons|themes|wine)$"
 ```
 
-### user-cmd
+## user-cmd
 
 Allows you to specify custom commands and aliases in the file
 `~/.config/dlaunch/user-commands.scm`. This plugin provides a source named

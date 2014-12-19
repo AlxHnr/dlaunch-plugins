@@ -33,10 +33,10 @@
       irregex
       (if (file-exists? (get-config-path "ignore-files.scm"))
         (read-file (get-config-path "ignore-files.scm"))
-        '("^.*.(a|o|so|dll|class|pyc|bin)$"
-          "^.*/.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
-          "^.*/.(thumbnails|icons|themes|wine)$"
-          "^.*/.local/share/Trash$"))))
+        '("^.*/\\.(a|o|so|dll|class|pyc|bin)$"
+          "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
+          "^.*/\\.(thumbnails|icons|themes|wine)$"
+          "^.*/\\.local/share/Trash$"))))
 
   ;; A function, which checks if the given absolute path can be ignored.
   (define (ignore? path)

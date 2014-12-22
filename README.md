@@ -30,12 +30,12 @@ see the documentation of the
 
 Here is an example:
 
-`
+```
 ^.*/\.(a|o|so|dll|class|pyc|bin)$
 ^.*/\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$
 ^.*/\.(thumbnails|icons|themes|wine)$
 ^.*/\.local/share/Trash$
-`
+```
 
 ## user-cmd
 

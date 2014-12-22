@@ -32,7 +32,7 @@
       irregex
       (if (file-exists? ignore-file-path)
         (read-lines ignore-file-path)
-        '("^.*/\\.(a|o|so|dll|class|pyc|bin)$"
+        '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
           "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
           "^.*/\\.(thumbnails|icons|themes|wine)$"
           "^.*/\\.local/share/Trash$"))))

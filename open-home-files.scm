@@ -23,16 +23,15 @@
 (use posix extras irregex data-structures srfi-1)
 (foreign-declare "#include <sys/stat.h>")
 
-(let ()
-  (define stat-is-directory?
-    (foreign-lambda bool "S_ISDIR" int))
+(let ((ignore-file-path (get-config-path "ignore-files.txt"))
+      (stat-is-directory? (foreign-lambda bool "S_ISDIR" int)))
 
   ;; A list with regexes which specify the paths which should be ignored.
   (define ignore-list
     (map
       irregex
-      (if (file-exists? (get-config-path "ignore-files.scm"))
-        (read-file (get-config-path "ignore-files.scm"))
+      (if (file-exists? ignore-file-path)
+        (read-lines ignore-file-path)
         '("^.*/\\.(a|o|so|dll|class|pyc|bin)$"
           "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
           "^.*/\\.(thumbnails|icons|themes|wine)$"

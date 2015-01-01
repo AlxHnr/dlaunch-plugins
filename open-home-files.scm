@@ -35,7 +35,8 @@
         '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
           "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
           "^.*/\\.(thumbnails|icons|themes|wine)$"
-          "^.*/\\.local/share/Trash$"))))
+          "^.*/\\.local/share/Trash$"
+          "^.*/\\.opam/repo$"))))
 
   ;; A function, which checks if the given absolute path can be ignored.
   (define (ignore? path)

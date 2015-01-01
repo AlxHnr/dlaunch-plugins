@@ -37,6 +37,11 @@ Here is an example:
 ^.*/\.local/share/Trash$
 ```
 
+If you want to know what this plugin ignores by default, take a look at its
+[source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L35)
+The defaults will only be used if the file
+`~/.config/dlaunch/ignore-files.txt` does not exist.
+
 ## user-cmd
 
 Allows you to specify custom commands and aliases in the file

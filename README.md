@@ -38,7 +38,7 @@ Here is an example:
 ```
 
 If you want to know what this plugin ignores by default, take a look at its
-[source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L35)
+[source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L35-39).
 The defaults will only be used if the file
 `~/.config/dlaunch/ignore-files.txt` does not exist.
 

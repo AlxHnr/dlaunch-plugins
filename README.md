@@ -21,12 +21,14 @@ source named _"home-files"_. It uses _xdg-open_ to start your systems
 default application for the given filetype. To change your systems default
 programs, refer to the documentation of your desktop environment.
 
-This plugin ignores various directories by default, like VCS or cache
-directories. To disable this or to specify custom regular expressions, you
-must create the file `~/.config/dlaunch/ignore-files.txt`. It is a text
-file containing various regex patterns, one per line. For more informations
-see the documentation of the
-[irregex unit](http://wiki.call-cc.org/man/4/Unit%20irregex).
+This plugin ignores various paths by default, like VCS or cache
+directories. If you want to know what will be ignored exactly, take a look
+at the [source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L30-34).
+To add your own ignore expressions, you must create the file
+`~/.config/dlaunch/ignore-files.txt`. It is a text file containing one
+regex pattern per line. This file can be empty. The expressions will be
+matched against full filepaths. The allowed regex syntax is explained in
+the documentation of the [irregex unit](http://wiki.call-cc.org/man/4/Unit%20irregex).
 
 Here is an example:
 
@@ -37,10 +39,10 @@ Here is an example:
 ^.*/\.local/share/Trash$
 ```
 
-If you want to know what this plugin ignores by default, take a look at its
-[source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L35-39).
-The defaults will only be used if the file
-`~/.config/dlaunch/ignore-files.txt` does not exist.
+If you want to override the defaults, you can create the file
+`~/.config/dlaunch/ignore-files-override.txt`. This file has the same
+structure as the normal `ignore-files.txt`, but will override both the
+defaults and the normal ignore file.
 
 ## user-cmd
 

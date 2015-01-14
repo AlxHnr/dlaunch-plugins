@@ -23,20 +23,27 @@
 (use posix extras irregex data-structures srfi-1)
 (foreign-declare "#include <sys/stat.h>")
 
-(let ((ignore-file-path (get-config-path "ignore-files.txt"))
-      (stat-is-directory? (foreign-lambda bool "S_ISDIR" int)))
+(let ((stat-is-directory? (foreign-lambda bool "S_ISDIR" int))
+      (ignore-file-path (get-config-path "ignore-files.txt"))
+      (override-file-path (get-config-path "ignore-files-override.txt"))
+      (default-ignore-patterns
+        '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
+          "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
+          "^.*/\\.(thumbnails|icons|themes|wine)$"
+          "^.*/\\.local/share/Trash$"
+          "^.*/\\.opam/repo$")))
 
   ;; A list with regexes which specify the paths which should be ignored.
   (define ignore-list
     (map
       irregex
-      (if (file-exists? ignore-file-path)
-        (read-lines ignore-file-path)
-        '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
-          "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
-          "^.*/\\.(thumbnails|icons|themes|wine)$"
-          "^.*/\\.local/share/Trash$"
-          "^.*/\\.opam/repo$"))))
+      (if (file-exists? override-file-path)
+        (read-lines override-file-path)
+        (append
+          default-ignore-patterns
+          (if (file-exists? ignore-file-path)
+            (read-lines ignore-file-path)
+            '())))))
 
   ;; A function, which checks if the given absolute path can be ignored.
   (define (ignore? path)

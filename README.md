@@ -1,10 +1,8 @@
 # Dlaunch plugins
 
 This repository contains various small plugins for
-[Dlaunch](https://github.com/AlxHnr/Dlaunch). You can clone this entire
-repository to `~/.config/dlaunch/plugins/`. But consider that i may write
-alternative versions of some plugins which may conflict. This is why i
-recommend installing plugins separately.
+[Dlaunch](https://github.com/AlxHnr/Dlaunch). If you want to install all of
+them, you can clone this entire repository to `~/.config/dlaunch/plugins/`.
 
 Here is a short overview of them:
 
@@ -41,8 +39,8 @@ Here is an example:
 
 If you want to override the defaults, you can create the file
 `~/.config/dlaunch/ignore-files-override.txt`. This file has the same
-structure as the normal `ignore-files.txt`, but will override both the
-defaults and the normal ignore file.
+structure as the normal ignore file, but will override both the defaults
+and the patterns in `ignore-files.txt`.
 
 ## user-cmd
 

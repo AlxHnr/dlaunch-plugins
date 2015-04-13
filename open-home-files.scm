@@ -31,7 +31,10 @@
           "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
           "^.*/\\.(thumbnails|icons|themes|wine)$"
           "^.*/\\.local/share/Trash$"
-          "^.*/\\.opam/repo$")))
+          "^.*/\\.local/share/Steam$"
+          "^.*/\\.local/share/evolution/mail$"
+          "^.*/\\.opam/repo$"
+          "^.*/\\.Skype$")))
 
   ;; A list with regexes which specify the paths which should be ignored.
   (define ignore-list

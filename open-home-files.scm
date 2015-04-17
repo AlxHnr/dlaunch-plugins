@@ -30,9 +30,9 @@
         '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
           "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
           "^.*/\\.(thumbnails|icons|themes|wine)$"
-          "^.*/\\.local/share/Trash$"
-          "^.*/\\.local/share/Steam$"
+          "^.*/\\.local/share/(Trash|Steam)$"
           "^.*/\\.local/share/evolution/mail$"
+          "^.*/\\.minecraft/(?!screenshots(/.*)?$|.*\\.png$).*$"
           "^.*/\\.opam/repo$"
           "^.*/\\.Skype$")))
 

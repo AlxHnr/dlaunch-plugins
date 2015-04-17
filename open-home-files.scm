@@ -27,14 +27,13 @@
       (ignore-file-path (get-config-path "ignore-files.txt"))
       (override-file-path (get-config-path "ignore-files-override.txt"))
       (default-ignore-patterns
-        '("^.*\\.(a|o|so|dll|class|pyc|bin)$"
-          "^.*/\\.(gconf|mozilla|claws-mail|cache|fontconfig|git|svn|hg)$"
-          "^.*/\\.(thumbnails|icons|themes|wine)$"
-          "^.*/\\.local/share/(Trash|Steam)$"
-          "^.*/\\.local/share/evolution/mail$"
-          "^.*/\\.minecraft/(?!screenshots(/.*)?$|.*\\.png$).*$"
-          "^.*/\\.opam/repo$"
-          "^.*/\\.Skype$")))
+        (list
+          "^.*\\.(a|o|so|dll|class|pyc|bin)$"
+          (string-append
+            "^.*/\\.(thumbnails|icons|themes|wine|gconf|mozilla|claws-mail"
+            "|cache|fontconfig|git|svn|hg|opam/repo|Skype)$")
+          "^.*/\\.local/share/(Trash|Steam|evolution/mail)$"
+          "^.*/\\.minecraft/(?!screenshots(/.*)?$|.*\\.png$).*$")))
 
   ;; A list with regexes which specify the paths which should be ignored.
   (define ignore-list

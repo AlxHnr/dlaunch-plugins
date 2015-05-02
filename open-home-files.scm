@@ -31,7 +31,7 @@
           "^.*\\.(a|o|so|dll|class|pyc|bin)$"
           (string-append
             "^.*/\\.(thumbnails|icons|themes|wine|gconf|mozilla|claws-mail"
-            "|cache|fontconfig|git|svn|hg|opam/repo|Skype)$")
+            "|cache|fontconfig|git|svn|hg|opam/repo|cargo/registry|Skype)$")
           "^.*/\\.local/share/(Trash|Steam|evolution/mail)$"
           "^.*/\\.minecraft/(?!screenshots(/.*)?$|.*\\.png$).*$")))
 

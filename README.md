@@ -1,7 +1,5 @@
-# Dlaunch plugins
-
 This repository contains various small plugins for
-[Dlaunch](https://github.com/AlxHnr/Dlaunch). If you want to install all of
+[dlaunch](https://github.com/AlxHnr/dlaunch). If you want to install all of
 them, you can clone this entire repository to `~/.config/dlaunch/plugins/`.
 
 Here is a short overview of them:
@@ -21,7 +19,7 @@ programs, refer to the documentation of your desktop environment.
 
 This plugin ignores various paths by default, like VCS or cache
 directories. If you want to know what will be ignored exactly, take a look
-at the [source code](https://github.com/AlxHnr/Dlaunch-plugins/blob/master/open-home-files.scm#L31-L36).
+at the [source code](https://github.com/AlxHnr/dlaunch-plugins/blob/master/open-home-files.scm#L31-L36).
 To add your own ignore expressions, you must create the file
 `~/.config/dlaunch/ignore-files.txt`. It is a text file containing one
 regex pattern per line. This file can be empty. The expressions will be

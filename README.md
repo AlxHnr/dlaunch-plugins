@@ -1,6 +1,7 @@
 This repository contains various small plugins for
-[dlaunch](https://github.com/AlxHnr/dlaunch). If you want to install all of
-them, you can clone this entire repository to `~/.config/dlaunch/plugins/`.
+[dlaunch](https://github.com/AlxHnr/dlaunch). This is free software,
+released into the public domain. See the LICENSE file for more
+informations.
 
 Here is a short overview of them:
 
@@ -64,7 +65,3 @@ Execute arbitrary shell commands and remember them until their score fades.
 It provides a source named _"cmd-hist"_ and ignores commands which do not
 start with a letter, number or underscore. This allows other plugins to
 implement special commands prefixed by i.e. `:` or `=`.
-
-## License
-
-Released under the zlib license.
